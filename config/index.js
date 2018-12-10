@@ -1,5 +1,5 @@
 const dotenv = require('dotenv');
 
-const { parsed } = dotenv.config();
+const config = dotenv.config();
 
-module.exports = parsed;
+module.exports = config.parsed;
