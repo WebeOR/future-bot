@@ -1,0 +1,17 @@
+{
+  "name": "f-bot-telegraf",
+  "version": "1.0.0",
+  "main": "index.js",
+  "author": "AlexQuidditch@yandex.ru",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon index.js"
+  },
+  "dependencies": {
+    "dotenv": "^6.2.0",
+    "telegraf": "^3.25.5"
+  },
+  "devDependencies": {
+    "nodemon": "^1.18.7"
+  }
+}
