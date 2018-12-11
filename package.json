@@ -5,6 +5,7 @@
   "author": "AlexQuidditch@yandex.ru",
   "license": "MIT",
   "scripts": {
+    "start": "node index.js",
     "dev": "nodemon index.js"
   },
   "dependencies": {
