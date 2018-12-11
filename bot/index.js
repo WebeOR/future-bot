@@ -1,8 +1,5 @@
 const config = require('../config');
 
-console.log('config -' , config);
-console.log('process.env -' , process.env);
-
 const Telegraf = require('telegraf');
 const Extra = require('telegraf/extra');
 const Markup = require('telegraf/markup');
