@@ -1,11 +1,9 @@
-const dotenv = require('dotenv');
+require('dotenv').config();
 
-let config = dotenv.config().parsed;
+const { BOT_TOKEN } = process.env;
 
-if (!config) {
-  config = {
-    BOT_TOKEN: process.env.BOT_TOKEN,
-  }
-}
+const config = {
+  BOT_TOKEN,
+};
 
 module.exports = config;
