@@ -5,8 +5,8 @@ const Extra = require('telegraf/extra');
 const Markup = require('telegraf/markup');
 
 const keyboard = Markup.inlineKeyboard([
-  Markup.urlButton('❤️', 'http://telegraf.js.org'),
-  Markup.callbackButton('Delete', 'delete')
+	Markup.urlButton('❤️', 'http://telegraf.js.org'),
+	Markup.callbackButton('Delete', 'delete')
 ]);
 
 const bot = new Telegraf(BOT_TOKEN);
@@ -21,9 +21,9 @@ bot.action('delete', ({ deleteMessage }) => deleteMessage());
 bot.command( 'lol' , ({ reply }) => reply('qwdqwdwqqwd') );
 
 bot.on('message', ctx => {
-  console.log(ctx.from.id);
-  console.log(ctx.message);
-  ctx.telegram.sendCopy(ctx.from.id, ctx.message)
+	console.log(ctx.from.id);
+	console.log(ctx.message);
+	ctx.telegram.sendCopy(ctx.from.id, ctx.message);
 });
 
 module.exports = bot;

@@ -1,17 +1,17 @@
-import { Schema } from 'mongoose';
-import { BaseSchemaAbstract } from '../base/Schema';
+const { Schema } = require('mongoose');
+const { BaseSchemaAbstract } = require('../base/Schema');
 
 const ModelSchema = {
-  active: {
-    type: Boolean,
-    required: true,
-    default: false,
-  },
+	active: {
+		type: Boolean,
+		required: true,
+		default: false,
+	},
 };
 
 const ContactSchema = new Schema({
-  ...ModelSchema,
-  ...BaseSchemaAbstract
+	...ModelSchema,
+	...BaseSchemaAbstract
 });
 
 module.exports = ContactSchema;
