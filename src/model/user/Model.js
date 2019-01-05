@@ -1,17 +1,6 @@
-const { Schema } = require('mongoose');
-const { BaseSchemaAbstract } = require('../base/Schema');
+const { model } = require('mongoose');
+const UserSchema = require('./Schema.js');
 
-const ModelSchema = {
-	active: {
-		type: Boolean,
-		required: true,
-		default: false,
-	},
-};
+const User = model('User', UserSchema);
 
-const ContactSchema = new Schema({
-	...ModelSchema,
-	...BaseSchemaAbstract
-});
-
-module.exports = ContactSchema;
+module.exports = User;
