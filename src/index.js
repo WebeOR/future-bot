@@ -1,10 +1,16 @@
 const bot = require('./bot');
+const server = require('./server');
 const connection = require('./connect.js');
 
 async function main () {
-	await connection.create();
-	bot.startPolling();
-	console.log('Future Bot is running!');
+  try {
+    await connection.create();
+    await server.create();
+    bot.startPolling();
+    console.log('Future Bot is running!');
+  } catch (error) {
+    console.log('Error on start', error);
+  }
 }
 
 bot.catch( error => {

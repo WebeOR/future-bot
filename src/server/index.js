@@ -1,4 +1,5 @@
 const anumargak = require('anumargak');
+const { PORT } = require('../../config');
 
 const service = require('restana')({
 	routerFactory: options => anumargak(options)
@@ -30,3 +31,11 @@ service.get('/version', function (req, res) {
 	};
 	res.send(); // 200 is the default response code
 });
+
+async function create (port = PORT) {
+  await service.start(port);
+}
+
+module.exports = {
+  create
+};
