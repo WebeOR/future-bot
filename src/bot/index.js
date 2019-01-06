@@ -18,7 +18,7 @@ bot.command('modern', ({ reply }) => reply('Yo'));
 bot.action('delete', ({ deleteMessage }) => deleteMessage());
 
 // bot.use( ctx => console.log( 'editedMessage - ', ctx.editedMessage) );
-bot.command('hello', console.log );
+bot.command('hello', ({ from , message }) => console.log );
 
 bot.on('message', ctx => {
   console.log(ctx.from.id);
