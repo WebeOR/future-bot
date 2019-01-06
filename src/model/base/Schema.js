@@ -1,11 +1,11 @@
 const BaseSchemaAbstract = {
 	created_date: {
-		default: Date.now,
 		type: Date,
+		default: Date.now,
 	},
 	modified_date: {
-		default: Date.now,
 		type: Date,
+		default: Date.now,
 	},
 };
 
