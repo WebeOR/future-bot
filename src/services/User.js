@@ -34,9 +34,11 @@ class User {
 				last_activity: date,
 			};
 
-			const user = await new UserModel(normalizedData);
+      const user = await new UserModel(normalizedData);
+      await user.save();
+      
 			console.log( 'UserService.create - ' , user );
-			return user;
+      return user.toObject();
 		} catch (error) {
       console.error( 'UserService.create - ' , error );
       throw error;
