@@ -4,9 +4,11 @@ const Telegraf = require('telegraf');
 const Extra = require('telegraf/extra');
 const Markup = require('telegraf/markup');
 
+const UserService = require('../services/User');
+
 const keyboard = Markup.inlineKeyboard([
-  Markup.urlButton('❤️', 'http://telegraf.js.org'),
-  Markup.callbackButton('Delete', 'delete')
+	Markup.urlButton('❤️', 'http://telegraf.js.org'),
+	Markup.callbackButton('Delete', 'delete')
 ]);
 
 const bot = new Telegraf(BOT_TOKEN);
@@ -18,12 +20,21 @@ bot.command('modern', ({ reply }) => reply('Yo'));
 bot.action('delete', ({ deleteMessage }) => deleteMessage());
 
 // bot.use( ctx => console.log( 'editedMessage - ', ctx.editedMessage) );
-bot.command('hello', ({ from , message }) => console.log(from , message) );
+bot.command('hello', async ({ message, reply }) => {
+	const userID = message.from.id;
+	const isExist = await UserService.isExist(userID);
+	if (isExist) {
+		reply('Эй, я тебя знаю!');
+	} else {
+		const newUser = await UserService.create(message);
+		reply(`Ну вот, я тебя записал, смотри...\n\n${ newUser }`);
+	}
+});
 
 bot.on('message', ctx => {
-  console.log(ctx.from.id);
-  console.log(ctx.message);
-  ctx.telegram.sendCopy(ctx.from.id, ctx.message);
+	console.log(ctx.from.id);
+	console.log(ctx.message);
+	ctx.telegram.sendCopy(ctx.from.id, ctx.message);
 });
 
 module.exports = bot;
