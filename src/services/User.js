@@ -6,7 +6,7 @@ class User {
 	}
 
 	async get (user_id) {
-    const user = await UserModel.find({ user_id }).exec();
+    const user = await UserModel.findOne({ user_id }).exec();
     console.log('UserService.get - ' , user);
 		if (user) {
 			return user;
