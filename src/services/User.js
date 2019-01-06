@@ -18,9 +18,7 @@ class User {
 		return !!user;
 	}
 
-	async create ({
-		from , chat , date
-	}) {
+	async create ({ from , chat , date }) {
 		try {
 			const normalizedData = {
 				user_id: from.is_bot ? null : from.id,
@@ -36,7 +34,7 @@ class User {
 
       const user = await new UserModel(normalizedData);
       await user.save();
-      
+
 			console.log( 'UserService.create - ' , user );
       return user.toObject();
 		} catch (error) {

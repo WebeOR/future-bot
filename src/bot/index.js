@@ -22,12 +22,12 @@ bot.action('delete', ({ deleteMessage }) => deleteMessage());
 // bot.use( ctx => console.log( 'editedMessage - ', ctx.editedMessage) );
 bot.command('hello', async ({ message, reply }) => {
 	const userID = message.from.id;
-	const isExist = await UserService.isExist(userID);
-	if (isExist) {
-		reply('Эй, я тебя знаю!');
+	const user = await UserService.get(userID);
+	if (user) {
+		reply(`Эй, ${ newUser.first_name }, я тебя знаю!`);
 	} else {
 		const newUser = await UserService.create(message);
-		reply(`Ну вот, ${ newUser.first_name } я тебя записал, смотри...\n\n${ newUser.toString() }`);
+		reply(`Ну вот, ${ newUser.first_name }, теперь я всё о тебе знаю!`);
 	}
 });
 
