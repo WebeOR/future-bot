@@ -1,8 +1,6 @@
 const { connect, connection, disconnect } = require('mongoose');
 
-const { DB_HOST } = require('../config');
-
-function connectWrapper () {
+function connectWrapper (DB_HOST) {
 	connect( DB_HOST , {
 		useNewUrlParser: true,
 		server: {
@@ -13,7 +11,7 @@ function connectWrapper () {
 
 let connectPromise;
 
-function create () {
+function create (DB_HOST) {
 	if (!connectPromise) {
 		connectPromise = new Promise(( resolve ) => {
 			const db = connection;
@@ -37,7 +35,7 @@ function create () {
 				setTimeout(connect, 1000);
 			});
 
-			connectWrapper();
+			connectWrapper(DB_HOST);
 		});
 	}
 	return connectPromise;
