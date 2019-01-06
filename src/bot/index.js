@@ -24,7 +24,7 @@ bot.command('hello', async ({ message, reply }) => {
 	const userID = message.from.id;
 	const user = await UserService.get(userID);
 	if (user) {
-		reply(`Эй, ${ newUser.first_name }, я тебя знаю!`);
+		reply(`Эй, ${ user.first_name }, я тебя знаю!`);
 	} else {
 		const newUser = await UserService.create(message);
 		reply(`Ну вот, ${ newUser.first_name }, теперь я всё о тебе знаю!`);
