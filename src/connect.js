@@ -1,11 +1,11 @@
-const { connect, connection, disconnect } = require('mongoose');
+const {
+	connect, connection, disconnect
+} = require('mongoose');
 
 function connectWrapper (DB_HOST) {
 	connect( DB_HOST , {
 		useNewUrlParser: true,
-		server: {
-			auto_reconnect: true
-		},
+		server: { auto_reconnect: true },
 	});
 }
 
@@ -41,6 +41,4 @@ function create (DB_HOST) {
 	return connectPromise;
 }
 
-module.exports = {
-	create
-};
+module.exports = { create };

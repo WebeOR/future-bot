@@ -1,4 +1,4 @@
-class Quest {};
+class Quest {}
 
 const QuestService = new Quest();
 
