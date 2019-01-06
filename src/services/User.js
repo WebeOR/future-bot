@@ -10,8 +10,6 @@ class User {
     console.log('UserService.get - ' , user);
 		if (user) {
 			return user;
-		} else {
-			throw new Error('User not found');
 		}
 	}
 
@@ -40,8 +38,8 @@ class User {
 			console.log( 'UserService.create - ' , user );
 			return user;
 		} catch (error) {
-			console.error( 'UserService.create - ' , error );
-			throw new Error('User can\'t be created');
+      console.error( 'UserService.create - ' , error );
+      throw error;
 		}
 	}
 }

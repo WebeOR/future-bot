@@ -11,12 +11,12 @@ async function main () {
     bot.startPolling();
     console.log('Future Bot is running!');
   } catch (error) {
-    console.error('Error on start', error);
+    console.error('Error on start - ', error);
   }
 }
 
-bot.catch( error => {
-	console.log('Ooops', error);
-});
+// bot.catch( error => {
+// 	console.log('Ooops', error);
+// });
 
 main();
