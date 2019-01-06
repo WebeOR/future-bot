@@ -22,6 +22,7 @@
     "anumargak": "^2.0.2",
     "body-parser": "^1.18.3",
     "crypto-js": "^3.1.9-1",
+    "dotenv": "^6.2.0",
     "mongoose": "^5.3.15",
     "nodemailer-sendmail-transport": "^1.0.2",
     "restana": "^2.7.0",

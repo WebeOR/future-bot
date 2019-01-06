@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const {
   BOT_TOKEN,
   DB_HOST,
